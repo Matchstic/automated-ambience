@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <button width="1" alignment="left" title="Start Monitor" id="N9u-Wy-OGh">
+                            <connections>
+                                <action selector="userDidTapStartStopButton:" destination="AgC-eL-Hgc" id="2JS-u2-V2q"/>
+                            </connections>
+                        </button>
+                        <label width="1" alignment="left" text="BPM: --" id="axs-iu-8sA"/>
+                        <label width="1" alignment="left" text="HRV: --" id="6py-ce-2sr"/>
+                        <label width="1" alignment="left" text="Prox: --" id="RPi-fV-phH"/>
+                        <separator alignment="left" alpha="0.5" id="Bt8-Vw-Ufy"/>
+                        <switch width="1" alignment="left" value="YES" title="Heart Feedback" id="0jh-hr-EHl">
+                            <connections>
+                                <action selector="onHeartFeedbackChanged:" destination="AgC-eL-Hgc" id="HgY-IZ-FKv"/>
+                            </connections>
+                        </switch>
+                        <switch width="1" alignment="left" value="YES" title="Override Stress Threshold" id="bXh-zn-lTC">
+                            <connections>
+                                <action selector="onThresholdOverrideChanged:" destination="AgC-eL-Hgc" id="cTk-5E-VvW"/>
+                            </connections>
+                        </switch>
+                    </items>
+                    <connections>
+                        <outlet property="bpmLabel" destination="axs-iu-8sA" id="wYE-Ge-Giq"/>
+                        <outlet property="heartFeedbackSwitch" destination="0jh-hr-EHl" id="NpJ-5V-N7c"/>
+                        <outlet property="hrvLabel" destination="6py-ce-2sr" id="KSn-AL-5Kc"/>
+                        <outlet property="proximityLabel" destination="RPi-fV-phH" id="kmI-Cr-Iam"/>
+                        <outlet property="startStopButton" destination="N9u-Wy-OGh" id="VCR-ga-Mz2"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+    </scenes>
+</document>

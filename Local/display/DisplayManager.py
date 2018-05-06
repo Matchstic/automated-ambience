@@ -1,5 +1,5 @@
 import time
-import signal
+import signal, sys
 
 IS_EMULATED = False
 
@@ -18,6 +18,9 @@ class DisplayManager():
         # Handle signals emitted by the underlying OS to clean up for exiting.
         signal.signal(signal.SIGINT, self.handle_signal)
         signal.signal(signal.SIGTERM, self.handle_signal)
+        signal.signal(signal.SIGABRT, self.handle_signal)
+        signal.signal(signal.SIGINT, self.handle_signal)
+        signal.signal(signal.SIGSEGV, self.handle_signal)
         
         if IS_EMULATED is False:
             self.display = unicornhat
@@ -63,10 +66,14 @@ class DisplayManager():
                 # End on a keyboard intterupt
                 pass
                 
+            self.is_setup = False
+            
             # Clear the display
             for x in range(8):
                 for y in range(4):
-                    self.display_set_pixel(x, y, 0, 0, 0)
+                    self.display.set_pixel(x, y, 0, 0, 0)
+                    
+            sys.exit(0)
         
     
     def set_pixel(self, x, y, r, g, b):

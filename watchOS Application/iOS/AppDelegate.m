@@ -35,6 +35,8 @@
             NSLog(@"[HealthKit]: %@", error.localizedDescription);
     }];
     
+    [[MRTBluetoothMonitor sharedInstance] startPeriodicScanningWithDelegate:self];
+    
     return YES;
 }
 
@@ -74,6 +76,20 @@
             NSLog(@"AUTH ERROR: %@", error.localizedDescription);
         }
     }];
+}
+
+- (void)didFindDeviceWithRSSI:(int)rssi {
+    self.mqttManager.basestationIsVisible = YES;
+
+    NSNumber *number = [NSNumber numberWithInt:rssi];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"com.matchstic.mrt-cw2/bluetoothChanged" object:number];
+}
+
+- (void)didNotFindDevice {
+    self.mqttManager.basestationIsVisible = NO;
+    
+    NSNumber *number = [NSNumber numberWithInt:INT_MAX];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"com.matchstic.mrt-cw2/bluetoothChanged" object:number];
 }
 
 @end

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91E9264209E1502006A359B /* MRTBluetoothMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC58072098EA7800018635 /* MRTBluetoothMonitor.m */; };
+		C91E9266209E160F006A359B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91E9265209E160F006A359B /* CoreBluetooth.framework */; };
 		C93DBFE62061491C00F9444E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C93DBFE52061491C00F9444E /* AppDelegate.m */; };
 		C93DBFE92061491C00F9444E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93DBFE82061491C00F9444E /* ViewController.m */; };
 		C93DBFEC2061491C00F9444E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93DBFEA2061491C00F9444E /* Main.storyboard */; };
 		C93DBFEE2061491C00F9444E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93DBFED2061491C00F9444E /* Assets.xcassets */; };
 		C93DBFF42061491C00F9444E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C93DBFF32061491C00F9444E /* main.m */; };
-		C93DBFF82061491C00F9444E /* MRT-CW2-Watch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C93DBFF72061491C00F9444E /* MRT-CW2-Watch WatchKit App.app */; };
+		C93DBFF82061491C00F9444E /* Ambience WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C93DBFF72061491C00F9444E /* Ambience WatchKit App.app */; };
 		C93DBFFE2061491C00F9444E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93DBFFC2061491C00F9444E /* Interface.storyboard */; };
 		C93DC0002061491C00F9444E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93DBFFF2061491C00F9444E /* Assets.xcassets */; };
-		C93DC0072061491C00F9444E /* MRT-CW2-Watch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C93DC0062061491C00F9444E /* MRT-CW2-Watch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C93DC0072061491C00F9444E /* Ambience.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C93DC0062061491C00F9444E /* Ambience.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C93DC00D2061491C00F9444E /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93DC00C2061491C00F9444E /* InterfaceController.m */; };
 		C93DC0102061491C00F9444E /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C93DC00F2061491C00F9444E /* ExtensionDelegate.m */; };
 		C93DC0152061491D00F9444E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93DC0142061491D00F9444E /* Assets.xcassets */; };
@@ -27,7 +29,6 @@
 		C9AC58012098A94500018635 /* libMQTTKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AC58002098A94500018635 /* libMQTTKit.a */; };
 		C9AC58032098A9B800018635 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AC58022098A9B800018635 /* WatchConnectivity.framework */; };
 		C9AC58052098A9C000018635 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9AC58042098A9C000018635 /* WatchConnectivity.framework */; };
-		C9AC58082098EA7800018635 /* MRTBluetoothMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC58072098EA7800018635 /* MRTBluetoothMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C93DC0072061491C00F9444E /* MRT-CW2-Watch WatchKit Extension.appex in Embed App Extensions */,
+				C93DC0072061491C00F9444E /* Ambience.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,7 +66,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				C93DBFF82061491C00F9444E /* MRT-CW2-Watch WatchKit App.app in Embed Watch Content */,
+				C93DBFF82061491C00F9444E /* Ambience WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +74,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C93DBFE12061491C00F9444E /* MRT-CW2-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MRT-CW2-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91E9265209E160F006A359B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		C93DBFE12061491C00F9444E /* Ambience Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ambience Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93DBFE42061491C00F9444E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C93DBFE52061491C00F9444E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C93DBFE72061491C00F9444E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -83,11 +85,11 @@
 		C93DBFF02061491C00F9444E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C93DBFF22061491C00F9444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C93DBFF32061491C00F9444E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C93DBFF72061491C00F9444E /* MRT-CW2-Watch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MRT-CW2-Watch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93DBFF72061491C00F9444E /* Ambience WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ambience WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93DBFFD2061491C00F9444E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C93DBFFF2061491C00F9444E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C93DC0012061491C00F9444E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C93DC0062061491C00F9444E /* MRT-CW2-Watch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MRT-CW2-Watch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93DC0062061491C00F9444E /* Ambience.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Ambience.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93DC00B2061491C00F9444E /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
 		C93DC00C2061491C00F9444E /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
 		C93DC00E2061491C00F9444E /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
@@ -97,8 +99,8 @@
 		C93DC025206149A100F9444E /* MRTHeartMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRTHeartMonitor.h; sourceTree = "<group>"; };
 		C93DC026206149A100F9444E /* MRTHeartMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRTHeartMonitor.m; sourceTree = "<group>"; };
 		C93DC02920614BE400F9444E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		C93DC02B20614BE400F9444E /* MRT-CW2-Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MRT-CW2-Watch.entitlements"; sourceTree = "<group>"; };
-		C93DC02C20614BF000F9444E /* MRT-CW2-Watch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MRT-CW2-Watch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		C93DC02B20614BE400F9444E /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		C93DC02C20614BF000F9444E /* WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		C93DC02D20614BF000F9444E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		C9AC57EE20988CFF00018635 /* MRTMQTTManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRTMQTTManager.h; sourceTree = "<group>"; };
 		C9AC57EF20988CFF00018635 /* MRTMQTTManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRTMQTTManager.m; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91E9266209E160F006A359B /* CoreBluetooth.framework in Frameworks */,
 				C9AC58032098A9B800018635 /* WatchConnectivity.framework in Frameworks */,
 				C93DC02A20614BE400F9444E /* HealthKit.framework in Frameworks */,
 				C9AC58012098A94500018635 /* libMQTTKit.a in Frameworks */,
@@ -139,9 +142,9 @@
 		C93DBFD82061491C00F9444E = {
 			isa = PBXGroup;
 			children = (
-				C93DBFE32061491C00F9444E /* MRT-CW2-Watch */,
-				C93DBFFB2061491C00F9444E /* MRT-CW2-Watch WatchKit App */,
-				C93DC00A2061491C00F9444E /* MRT-CW2-Watch WatchKit Extension */,
+				C93DBFE32061491C00F9444E /* iOS */,
+				C93DBFFB2061491C00F9444E /* WatchKit App */,
+				C93DC00A2061491C00F9444E /* WatchKit Extension */,
 				C93DBFE22061491C00F9444E /* Products */,
 				C93DC02820614BE400F9444E /* Frameworks */,
 			);
@@ -150,23 +153,25 @@
 		C93DBFE22061491C00F9444E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C93DBFE12061491C00F9444E /* MRT-CW2-Watch.app */,
-				C93DBFF72061491C00F9444E /* MRT-CW2-Watch WatchKit App.app */,
-				C93DC0062061491C00F9444E /* MRT-CW2-Watch WatchKit Extension.appex */,
+				C93DBFE12061491C00F9444E /* Ambience Companion.app */,
+				C93DBFF72061491C00F9444E /* Ambience WatchKit App.app */,
+				C93DC0062061491C00F9444E /* Ambience.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C93DBFE32061491C00F9444E /* MRT-CW2-Watch */ = {
+		C93DBFE32061491C00F9444E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C93DC02B20614BE400F9444E /* MRT-CW2-Watch.entitlements */,
+				C93DC02B20614BE400F9444E /* iOS.entitlements */,
 				C93DBFE42061491C00F9444E /* AppDelegate.h */,
 				C93DBFE52061491C00F9444E /* AppDelegate.m */,
 				C93DBFE72061491C00F9444E /* ViewController.h */,
 				C93DBFE82061491C00F9444E /* ViewController.m */,
 				C9AC57F52098A19200018635 /* MRTMQTTManager.h */,
 				C9AC57F62098A19200018635 /* MRTMQTTManager.m */,
+				C9AC58062098EA7800018635 /* MRTBluetoothMonitor.h */,
+				C9AC58072098EA7800018635 /* MRTBluetoothMonitor.m */,
 				C93DBFEA2061491C00F9444E /* Main.storyboard */,
 				C93DBFED2061491C00F9444E /* Assets.xcassets */,
 				C93DBFEF2061491C00F9444E /* LaunchScreen.storyboard */,
@@ -174,42 +179,41 @@
 				C93DBFF32061491C00F9444E /* main.m */,
 				C9AC57FE2098A8AC00018635 /* include */,
 			);
-			path = "MRT-CW2-Watch";
+			path = iOS;
 			sourceTree = "<group>";
 		};
-		C93DBFFB2061491C00F9444E /* MRT-CW2-Watch WatchKit App */ = {
+		C93DBFFB2061491C00F9444E /* WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				C93DBFFC2061491C00F9444E /* Interface.storyboard */,
 				C93DBFFF2061491C00F9444E /* Assets.xcassets */,
 				C93DC0012061491C00F9444E /* Info.plist */,
 			);
-			path = "MRT-CW2-Watch WatchKit App";
+			path = "WatchKit App";
 			sourceTree = "<group>";
 		};
-		C93DC00A2061491C00F9444E /* MRT-CW2-Watch WatchKit Extension */ = {
+		C93DC00A2061491C00F9444E /* WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C93DC02C20614BF000F9444E /* MRT-CW2-Watch WatchKit Extension.entitlements */,
+				C93DC02C20614BF000F9444E /* WatchKit Extension.entitlements */,
 				C93DC00B2061491C00F9444E /* InterfaceController.h */,
 				C93DC00C2061491C00F9444E /* InterfaceController.m */,
 				C93DC00E2061491C00F9444E /* ExtensionDelegate.h */,
 				C93DC00F2061491C00F9444E /* ExtensionDelegate.m */,
 				C93DC025206149A100F9444E /* MRTHeartMonitor.h */,
 				C93DC026206149A100F9444E /* MRTHeartMonitor.m */,
-				C9AC58062098EA7800018635 /* MRTBluetoothMonitor.h */,
-				C9AC58072098EA7800018635 /* MRTBluetoothMonitor.m */,
 				C9AC57EE20988CFF00018635 /* MRTMQTTManager.h */,
 				C9AC57EF20988CFF00018635 /* MRTMQTTManager.m */,
 				C93DC0142061491D00F9444E /* Assets.xcassets */,
 				C93DC0162061491D00F9444E /* Info.plist */,
 			);
-			path = "MRT-CW2-Watch WatchKit Extension";
+			path = "WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		C93DC02820614BE400F9444E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C91E9265209E160F006A359B /* CoreBluetooth.framework */,
 				C9AC58022098A9B800018635 /* WatchConnectivity.framework */,
 				C9AC58042098A9C000018635 /* WatchConnectivity.framework */,
 				C9AC58002098A94500018635 /* libMQTTKit.a */,
@@ -231,9 +235,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C93DBFE02061491C00F9444E /* MRT-CW2-Watch */ = {
+		C93DBFE02061491C00F9444E /* Ambience iOS App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C93DC0222061491D00F9444E /* Build configuration list for PBXNativeTarget "MRT-CW2-Watch" */;
+			buildConfigurationList = C93DC0222061491D00F9444E /* Build configuration list for PBXNativeTarget "Ambience iOS App" */;
 			buildPhases = (
 				C93DBFDD2061491C00F9444E /* Sources */,
 				C93DBFDE2061491C00F9444E /* Frameworks */,
@@ -245,14 +249,14 @@
 			dependencies = (
 				C93DBFFA2061491C00F9444E /* PBXTargetDependency */,
 			);
-			name = "MRT-CW2-Watch";
+			name = "Ambience iOS App";
 			productName = "MRT-CW2-Watch";
-			productReference = C93DBFE12061491C00F9444E /* MRT-CW2-Watch.app */;
+			productReference = C93DBFE12061491C00F9444E /* Ambience Companion.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C93DBFF62061491C00F9444E /* MRT-CW2-Watch WatchKit App */ = {
+		C93DBFF62061491C00F9444E /* Ambience WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C93DC01E2061491D00F9444E /* Build configuration list for PBXNativeTarget "MRT-CW2-Watch WatchKit App" */;
+			buildConfigurationList = C93DC01E2061491D00F9444E /* Build configuration list for PBXNativeTarget "Ambience WatchKit App" */;
 			buildPhases = (
 				C93DBFF52061491C00F9444E /* Resources */,
 				C93DC01D2061491D00F9444E /* Embed App Extensions */,
@@ -262,14 +266,14 @@
 			dependencies = (
 				C93DC0092061491C00F9444E /* PBXTargetDependency */,
 			);
-			name = "MRT-CW2-Watch WatchKit App";
+			name = "Ambience WatchKit App";
 			productName = "MRT-CW2-Watch WatchKit App";
-			productReference = C93DBFF72061491C00F9444E /* MRT-CW2-Watch WatchKit App.app */;
+			productReference = C93DBFF72061491C00F9444E /* Ambience WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		C93DC0052061491C00F9444E /* MRT-CW2-Watch WatchKit Extension */ = {
+		C93DC0052061491C00F9444E /* Ambience WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C93DC01A2061491D00F9444E /* Build configuration list for PBXNativeTarget "MRT-CW2-Watch WatchKit Extension" */;
+			buildConfigurationList = C93DC01A2061491D00F9444E /* Build configuration list for PBXNativeTarget "Ambience WatchKit Extension" */;
 			buildPhases = (
 				C93DC0022061491C00F9444E /* Sources */,
 				C93DC0032061491C00F9444E /* Frameworks */,
@@ -279,9 +283,9 @@
 			);
 			dependencies = (
 			);
-			name = "MRT-CW2-Watch WatchKit Extension";
+			name = "Ambience WatchKit Extension";
 			productName = "MRT-CW2-Watch WatchKit Extension";
-			productReference = C93DC0062061491C00F9444E /* MRT-CW2-Watch WatchKit Extension.appex */;
+			productReference = C93DC0062061491C00F9444E /* Ambience.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -297,6 +301,9 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
@@ -320,7 +327,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C93DBFDC2061491C00F9444E /* Build configuration list for PBXProject "MRT-CW2-Watch" */;
+			buildConfigurationList = C93DBFDC2061491C00F9444E /* Build configuration list for PBXProject "Ambience Watch Application" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -333,9 +340,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C93DBFE02061491C00F9444E /* MRT-CW2-Watch */,
-				C93DBFF62061491C00F9444E /* MRT-CW2-Watch WatchKit App */,
-				C93DC0052061491C00F9444E /* MRT-CW2-Watch WatchKit Extension */,
+				C93DBFE02061491C00F9444E /* Ambience iOS App */,
+				C93DBFF62061491C00F9444E /* Ambience WatchKit App */,
+				C93DC0052061491C00F9444E /* Ambience WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C93DBFE92061491C00F9444E /* ViewController.m in Sources */,
+				C91E9264209E1502006A359B /* MRTBluetoothMonitor.m in Sources */,
 				C93DBFF42061491C00F9444E /* main.m in Sources */,
 				C93DBFE62061491C00F9444E /* AppDelegate.m in Sources */,
 				C9AC57F72098A19200018635 /* MRTMQTTManager.m in Sources */,
@@ -386,7 +394,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C93DC0102061491C00F9444E /* ExtensionDelegate.m in Sources */,
-				C9AC58082098EA7800018635 /* MRTBluetoothMonitor.m in Sources */,
 				C93DC00D2061491C00F9444E /* InterfaceController.m in Sources */,
 				C93DC027206149A100F9444E /* MRTHeartMonitor.m in Sources */,
 				C9AC57F020988CFF00018635 /* MRTMQTTManager.m in Sources */,
@@ -398,12 +405,12 @@
 /* Begin PBXTargetDependency section */
 		C93DBFFA2061491C00F9444E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C93DBFF62061491C00F9444E /* MRT-CW2-Watch WatchKit App */;
+			target = C93DBFF62061491C00F9444E /* Ambience WatchKit App */;
 			targetProxy = C93DBFF92061491C00F9444E /* PBXContainerItemProxy */;
 		};
 		C93DC0092061491C00F9444E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C93DC0052061491C00F9444E /* MRT-CW2-Watch WatchKit Extension */;
+			target = C93DC0052061491C00F9444E /* Ambience WatchKit Extension */;
 			targetProxy = C93DC0082061491C00F9444E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -544,17 +551,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "MRT-CW2-Watch WatchKit Extension/MRT-CW2-Watch WatchKit Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "WatchKit Extension/WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWMJ98X6F2;
-				INFOPLIST_FILE = "MRT-CW2-Watch WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matchstic.MRT-CW2-Watch.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchstic.ambience.watchkitapp.watchkitextension;
+				PRODUCT_NAME = Ambience;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -566,17 +573,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "MRT-CW2-Watch WatchKit Extension/MRT-CW2-Watch WatchKit Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "WatchKit Extension/WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWMJ98X6F2;
-				INFOPLIST_FILE = "MRT-CW2-Watch WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matchstic.MRT-CW2-Watch.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchstic.ambience.watchkitapp.watchkitextension;
+				PRODUCT_NAME = Ambience;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -590,9 +597,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWMJ98X6F2;
-				IBSC_MODULE = MRT_CW2_Watch_WatchKit_Extension;
-				INFOPLIST_FILE = "MRT-CW2-Watch WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matchstic.MRT-CW2-Watch.watchkitapp";
+				IBSC_MODULE = WatchKit_Extension;
+				INFOPLIST_FILE = "WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchstic.ambience.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -607,9 +614,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWMJ98X6F2;
-				IBSC_MODULE = MRT_CW2_Watch_WatchKit_Extension;
-				INFOPLIST_FILE = "MRT-CW2-Watch WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matchstic.MRT-CW2-Watch.watchkitapp";
+				IBSC_MODULE = WatchKit_Extension;
+				INFOPLIST_FILE = "WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchstic.ambience.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -622,21 +629,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "MRT-CW2-Watch/MRT-CW2-Watch.entitlements";
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWMJ98X6F2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/frameworks",
 				);
-				INFOPLIST_FILE = "MRT-CW2-Watch/Info.plist";
+				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matchstic.MRT-CW2-Watch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchstic.ambience;
+				PRODUCT_NAME = "Ambience Companion";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -645,21 +652,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "MRT-CW2-Watch/MRT-CW2-Watch.entitlements";
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWMJ98X6F2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/frameworks",
 				);
-				INFOPLIST_FILE = "MRT-CW2-Watch/Info.plist";
+				INFOPLIST_FILE = iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.matchstic.MRT-CW2-Watch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchstic.ambience;
+				PRODUCT_NAME = "Ambience Companion";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -667,7 +674,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C93DBFDC2061491C00F9444E /* Build configuration list for PBXProject "MRT-CW2-Watch" */ = {
+		C93DBFDC2061491C00F9444E /* Build configuration list for PBXProject "Ambience Watch Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C93DC0182061491D00F9444E /* Debug */,
@@ -676,7 +683,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C93DC01A2061491D00F9444E /* Build configuration list for PBXNativeTarget "MRT-CW2-Watch WatchKit Extension" */ = {
+		C93DC01A2061491D00F9444E /* Build configuration list for PBXNativeTarget "Ambience WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C93DC01B2061491D00F9444E /* Debug */,
@@ -685,7 +692,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C93DC01E2061491D00F9444E /* Build configuration list for PBXNativeTarget "MRT-CW2-Watch WatchKit App" */ = {
+		C93DC01E2061491D00F9444E /* Build configuration list for PBXNativeTarget "Ambience WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C93DC01F2061491D00F9444E /* Debug */,
@@ -694,7 +701,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C93DC0222061491D00F9444E /* Build configuration list for PBXNativeTarget "MRT-CW2-Watch" */ = {
+		C93DC0222061491D00F9444E /* Build configuration list for PBXNativeTarget "Ambience iOS App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C93DC0232061491D00F9444E /* Debug */,

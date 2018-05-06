@@ -21,7 +21,6 @@
                         </button>
                         <label width="1" alignment="left" text="BPM: --" id="axs-iu-8sA"/>
                         <label width="1" alignment="left" text="HRV: --" id="6py-ce-2sr"/>
-                        <label width="1" alignment="left" text="Prox: --" id="RPi-fV-phH"/>
                         <separator alignment="left" alpha="0.5" id="Bt8-Vw-Ufy"/>
                         <switch width="1" alignment="left" value="YES" title="Heart Feedback" id="0jh-hr-EHl">
                             <connections>
@@ -38,7 +37,6 @@
                         <outlet property="bpmLabel" destination="axs-iu-8sA" id="wYE-Ge-Giq"/>
                         <outlet property="heartFeedbackSwitch" destination="0jh-hr-EHl" id="NpJ-5V-N7c"/>
                         <outlet property="hrvLabel" destination="6py-ce-2sr" id="KSn-AL-5Kc"/>
-                        <outlet property="proximityLabel" destination="RPi-fV-phH" id="kmI-Cr-Iam"/>
                         <outlet property="startStopButton" destination="N9u-Wy-OGh" id="VCR-ga-Mz2"/>
                     </connections>
                 </controller>

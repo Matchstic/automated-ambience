@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MRTBluetoothMonitor.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MRTBluetoothMonitorDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -93,7 +93,7 @@
     HKUnit *unit2 = [HKUnit secondUnitWithMetricPrefix:HKMetricPrefixMilli];
     double hrv = [self.lastHRVSample.quantity doubleValueForUnit:unit2];
     
-    return [NSString stringWithFormat:@"{ \"bpm\": %d, \"bpmTimestamp\": %d, \"hrv\": %d, \"hrvTimestamp\": %d, \"basestation_visible\": 1 }",
+    return [NSString stringWithFormat:@"{ \"bpm\": %d, \"bpmTimestamp\": %d, \"hrv\": %d, \"hrvTimestamp\": %d}",
                                         bpm,
                                         (int)[self.lastBPMSample startDate].timeIntervalSince1970,
                                         (int)hrv,

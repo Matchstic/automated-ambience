@@ -15,9 +15,12 @@
 @property (nonatomic, strong) MQTTClient *client;
 @property (nonatomic, strong) WCSession *watchSession;
 @property (nonatomic, readwrite) BOOL isConnected;
+@property (nonatomic, readwrite) BOOL _basestationIsVisible;
 
 - (void)connectToMQTTBroker;
 - (void)disconnectFromMQTTBroker;
+
+- (void)setBasestationIsVisible:(BOOL)basestationIsVisible;
 
 - (void)publishString:(NSString*)payload onTopic:(NSString*)topic retain:(BOOL)retain;
 

@@ -29,9 +29,9 @@ class AudioManager():
     # Speaker connectivity handling
     #########################################################################
         
-    def setup(self):
+    def setup(self, connected_callback):
         # Start the thread that monitors for Bluetooth speaker connectivity.
-        connection_thread = Thread(target=self._speaker_connection_thread)
+        connection_thread = Thread(target=self._speaker_connection_thread, args=(connected_callback,))
         connection_thread.daemon = True
         connection_thread.start()
         
@@ -39,20 +39,26 @@ class AudioManager():
         playback_thread.daemon = True
         playback_thread.start()
         
-    def _connect_to_speaker(self):
+    def _connect_to_speaker(self, connected_callback):
         while True:
-            status = subprocess.call('ls /dev/input/event0 2>/dev/null', shell=True)
+            status = subprocess.call('ls /dev/input/event0 2>/dev/null', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         
             if status == 0:
-                print("[INFO] Speaker is connected")
+                if self.speaker_connected == False:
+                    print("[INFO] Speaker is connected")
+                    
+                    if connected_callback is not None:
+                        connected_callback.speaker_connected()
+                        
                 self.speaker_connected = True
                 time.sleep(2)
             elif status == 2:
-                print("[WARN] Speaker is NOT connected")
+                if self.speaker_connected == True:
+                    print("[WARN] Speaker is NOT connected")
                 self.speaker_connected = False
                 
                 # Attempt a connection
-                subprocess.call(scriptspath + '/mrt_autopair.sh', shell=True)
+                subprocess.call(scriptspath + '/mrt_autopair.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 time.sleep(2)
                 
     def _connect_to_speaker_emulated(self):
@@ -61,11 +67,11 @@ class AudioManager():
         print("[INFO] Speaker is connected")
         self.speaker_connected = True
         
-    def _speaker_connection_thread(self):
+    def _speaker_connection_thread(self, connected_callback):
         if self.is_emulated is True:
             self._connect_to_speaker_emulated()
         else:
-            self._connect_to_speaker()
+            self._connect_to_speaker(connected_callback)
         
     def has_connected_speaker(self):
         return self.speaker_connected

@@ -7,7 +7,7 @@ class DisconnectionTask(BaseTask):
         self.user_basestation_visible = True
         
     def wants_subsumption(self):
-        return not self.user_basestation_visible
+        return not self.user_basestation_visible and self.audio_manager.has_connected_speaker()
         
     def on_task_update(self):
         # Ensure the LEDs are fully off when the user is no longer in Bluetooth visibility
@@ -22,4 +22,5 @@ class DisconnectionTask(BaseTask):
         
     def on_mqtt_message(self, topic, message):
         # We monitor the basestation_visible flag of incoming messages
-        pass
+        if topic == "data":
+            self.user_basestation_visible = message["basestation_visible"]

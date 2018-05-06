@@ -36,12 +36,13 @@ Next, install the Unicorn pHAT Python library. This is done by running `curl htt
 // TODO: Copy the Python code into a folder on the Pi over e.g. SFTP, to e.g. `/home/pi/ambience/`.
 // TODO: Create systemd entry for auto-launch on boot
 
-### 5. Bluetooth Audio
+### 5. Bluetooth Connectivity
 
 The Unicorn pHAT prevents the usage of the 3.5mm output device on the Raspberry Pi. Therefore, audio is only available over HDMI or Bluetooth.
 
-For this project, Bluetooth audio is required to be configured.
+Furthermore, `Ambience` requires correctly configured Bluetooth connectivity to broadcast a Bluetooth LE service, used for power management.
 
 // TODO: Setup - https://github.com/davidedg/NAS-mod-config/blob/master/bt-sound/bt-sound-Bluez5_PulseAudio5.txt
+// TODO: BLE - https://scribles.net/running-ble-advertising-example-code-on-raspbian-stretch/
 
 // !! Cover changing the MAC address of the speaker in `/Local/audio/scripts/mrt_autopair.sh`

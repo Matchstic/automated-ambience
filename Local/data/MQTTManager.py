@@ -1,6 +1,9 @@
 import paho.mqtt.client as mqtt
 from threading import Thread
 import json
+import time
+
+from EmulatedMQTTManager import EmulatedMQTTManager
 
 MQTT_SERVER = "m14.cloudmqtt.com"
 MQTT_PORT = 15466
@@ -20,48 +23,58 @@ class MQTTManager():
         
         self.callback = callback
         
-    def connect(self):
+        # We need an emulated server for when running in emulated mode.
+        self.emulated_server = EmulatedMQTTManager(self)
+        
+    def connect(self, is_emulated):
         global MQTT_TOPICS, MQTT_PASSWORD, MQTT_USERNAME, MQTT_PORT, MQTT_SERVER
          
         self.client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
             
         # Start the connection thread
-        connection_thread = Thread(target=self.connection_thread)
+        connection_thread = Thread(target=self.connection_thread, args=(is_emulated,))
         connection_thread.daemon = True
         connection_thread.start()
-            
-        # Start the event loop
-        event_thread = Thread(target=self.event_thread)
-        event_thread.daemon = True
-        event_thread.start()
-            
-    def event_thread(self):
-        self.client.loop_forever()
         
-    def connection_thread(self):
-        print("[INFO] Connecting to MQTT broker on port " + str(MQTT_PORT) + "...")
-        print("[INFO] If no data is accessible, make sure this port is not blocked by a firewall.")
+    def event_thread(self):
         try:
-            self.client.connect(MQTT_SERVER, MQTT_PORT)
+            self.client.loop_forever()
         except:
-           print("[ERROR] Failed to connect. Is the broker up, or is port " + str(MQTT_PORT) + " blocked by a firewall?") 
+            pass
+        
+    def connection_thread(self, is_emulated):
+        print("[INFO] Connecting to MQTT broker on port " + str(MQTT_PORT) + "...")
+        try:
+            if is_emulated is False:
+                print ("[DEBUG] Waiting for network connectivity")
+                time.sleep(10)
+                
+            self.client.connect(MQTT_SERVER, MQTT_PORT)
+            
+            # Start the event loop
+            event_thread = Thread(target=self.event_thread)
+            event_thread.daemon = True
+            event_thread.start()
+        except:
+            self.client.disconnect()
         
     def disconnect(self):
         self.client.disconnect()
         
     def unjsonify(self, jsonstr):
         return json.loads(jsonstr)
-        
+    
     # MQTT event callbacks
     def on_connect(self, client, userdata, flags, rc):
         global MQTT_SERVER, MQTT_PORT
         if rc == 0:
             print("[INFO] Connected to MQTT broker on " + MQTT_SERVER + ":" + str(MQTT_PORT))
+            self.emulated_server.on_mqtt_connected()
             
             # Subscribe to topics now...
             for topic in MQTT_TOPICS:
                 print("[INFO] Subscribing to MQTT topic: " + topic)
-                self.client.subscribe(topic, 0)
+                self.client.subscribe(topic, 2)
         else:
             print("[WARN] on_connect :: rc: " + str(rc))
 

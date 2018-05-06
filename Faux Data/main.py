@@ -34,6 +34,12 @@ def main():
     
     # Start up MQTT connection!
     mqtt_manager.connect()
+    
+    while True:
+        try:
+            time.sleep(0.05)
+        except:
+            break
 
 if __name__ == "__main__":
     main()

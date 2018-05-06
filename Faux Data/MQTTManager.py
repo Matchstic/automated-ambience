@@ -1,4 +1,6 @@
 import paho.mqtt.client as mqtt
+from threading import Thread
+import requests
 
 MQTT_SERVER = "m14.cloudmqtt.com"
 MQTT_PORT = 15466
@@ -20,16 +22,32 @@ class MQTTManager():
         global MQTT_TOPICS, MQTT_PASSWORD, MQTT_USERNAME, MQTT_PORT, MQTT_SERVER
          
         self.client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
-        self.client.connect(MQTT_SERVER, MQTT_PORT)
         
+        # Start the connection thread
+        connection_thread = Thread(target=self.connection_thread)
+        connection_thread.daemon = True
+        connection_thread.start()
+            
+    def connection_thread(self):
+        print("[INFO] Connecting to MQTT broker on port " + str(MQTT_PORT) + "...")
+        print("[INFO] Connecting to emulated MQTT broker on port " + str(12345) + "...")
         try:
-            self.client.loop_forever()
-        except KeyboardInterrupt:
+            self.client.connect(MQTT_SERVER, MQTT_PORT)
+        except:
             self.client.disconnect()
         
     def publish_message(self, message, topic):
         if self.is_connected is True:
             self.client.publish(topic, message, qos=2)
+            
+        # We also publish to the local HTTP server, if available
+        server_address = "http://localhost"
+        server_port = 12345
+        
+        try:
+            requests.post(server_address + ":" + str(server_port), data=topic + "\n" + message)
+        except:
+            pass
         
     # MQTT event callbacks
     def on_connect(self, client, userdata, flags, rc):

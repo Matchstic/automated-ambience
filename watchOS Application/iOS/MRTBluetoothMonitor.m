@@ -35,23 +35,11 @@
 
 - (void)startPeriodicScanningWithDelegate:(id<MRTBluetoothMonitorDelegate>)delegate {
     self.delegate = delegate;
-    [self performSelector:@selector(_stopScanning) withObject:nil afterDelay:5];
-    
-    /*if (self.bluetoothManager.state == CBManagerStatePoweredOn) {
-        NSLog(@"[BLUETOOTH] Starting scan...");
-        [self.bluetoothManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"181C"]] options:nil];
-        
-        [self performSelector:@selector(_stopScanning) withObject:nil afterDelay:5];
-    } else {
-        NSLog(@"[BLUETOOTH] NOT starting scan...");
-        [self performSelector:@selector(_startNewScan) withObject:nil afterDelay:5 * 60]; // 5 minutes
-    }*/
+    [self performSelector:@selector(_sendScanResults) withObject:nil afterDelay:5];
 }
 
-- (void)_stopScanning {
+- (void)_sendScanResults {
     NSLog(@"[BLUETOOTH] Sending scan results...");
-    //[self.bluetoothManager stopScan];
-    //[self performSelector:@selector(_startNewScan) withObject:nil afterDelay:5 * 60]; // 5 minutes
     
     if (self.didSeeDeviceOnLastScan) {
         [self.delegate didFindDeviceWithRSSI:self.deviceLastRSSI];
@@ -60,12 +48,8 @@
         [self.delegate didNotFindDevice];
     }
     
-    [self performSelector:@selector(_stopScanning) withObject:nil afterDelay:5];
+    [self performSelector:@selector(_sendScanResults) withObject:nil afterDelay:5];
 }
-
-/*- (void)_startNewScan {
-    [self startPeriodicScanningWithDelegate:self.delegate];
-}*/
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Bluetooth delegate

@@ -231,7 +231,7 @@ sudo apt-get install python-dbus python-gobject -y
 
 The `Ambience` system itself can now be installed.
 
-First, copy the contents of the included `/Ambience` folder to `/home/pi/ambience/` via e.g. SFTP.
+First, copy the contents of the included `/Ambience` folder to `/home/pi/Ambience/` via e.g. SFTP.
 
 Then, ensure `main.py` is executable:
 
@@ -248,7 +248,7 @@ Description=Automated ambient lighting and sound system
 After=bluetooth.target
 
 [Service]
-ExecStart=/home/pi/ambience/main.py
+ExecStart=/home/pi/Ambience/main.py
 Restart=always
 
 [Install]

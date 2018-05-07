@@ -1,0 +1,10 @@
+[Unit]
+Description=Automated ambient lighting and sound system
+After=bluetooth.target
+
+[Service]
+ExecStart=/home/pi/ambience/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

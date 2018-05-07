@@ -25,7 +25,11 @@ For wireless/remote setup, create an empty file on the SD card's `boot` partitio
 
 Boot the Raspberry Pi with this SD card.
 
-First, run `sudo apt-get update && sudo apt-get upgrade -y` to obtain any available package upgrades.
+First, run the following to obtain any available package upgrades:
+
+```
+sudo apt-get update && sudo apt-get upgrade -y
+```
 
 Optionally, change the hostname and password of your Raspberry Pi with `raspi-config`. It is recommended to change the default password due to security reasons.
 
@@ -37,15 +41,19 @@ The Unicorn pHAT prevents the usage of the 3.5mm output device on the Raspberry 
 
 Thus, `Ambience` relies on Bluetooth audio.
 
-##### `pulseaudio`
+#### `pulseaudio`
 
 We will first configure Bluetooth audio. Install `pulseaudio` with Bluetooth support:
 
-`sudo apt-get install pulseaudio pulseaudio-module-bluetooth bluez`
+```
+sudo apt-get install pulseaudio pulseaudio-module-bluetooth bluez
+```
 
 Optionally, install `mplayer` to test audio output:
 
-`sudo apt-get install mplayer`
+```
+sudo apt-get install mplayer
+```
 
 Each user utilising `pulseaudio` must be part of the `pulse-access` group. Thus:
 
@@ -103,7 +111,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable pulseaudio.service
 ```
 
-##### Speaker Connection
+#### Speaker Connection
 
 Once `pulseaudio` is configured, the Bluetooth speaker can be paired.
 
@@ -180,7 +188,7 @@ mplayer -ao pulse file.mp3
 Sources:
 - Del Grande, D. (2015). _Bluetooth and Audio # Bluez-5 + PulseAudio-5_. Available at: https://github.com/davidedg/NAS-mod-config/blob/master/bt-sound/bt-sound-Bluez5_PulseAudio5.txt. [Accessed 7th May 2018].
 
-##### Bluetooth LE advertisement
+#### Bluetooth LE advertisement
 
 `Ambience` requires correctly configured Bluetooth connectivity to advertise a Bluetooth Low Energy (LE) service, used for power management.
 
@@ -217,10 +225,68 @@ sudo pip install --user paho-mqtt
 
 Some further packages are required for the Bluetooth LE advertisement used in the `Ambience` system for power management:
 
-`sudo apt-get install python-dbus python-gobject -y`
+```
+sudo apt-get install python-dbus python-gobject -y
+```
 
+The `Ambience` system itself can now be installed.
 
+First, copy the contents of the included `/Ambience` folder to `/home/pi/ambience/` via e.g. SFTP.
 
-// TODO: Copy the Python code into a folder on the Pi over e.g. SFTP, to e.g. `/home/pi/ambience/`.
-// TODO: Create systemd entry for auto-launch on boot
-// !! Cover changing the MAC address of the speaker in `/home/pi/ambience/audio/scripts/mrt_autopair.sh`
+Then, ensure `main.py` is executable:
+
+```
+sudo chmod 0777 /home/pi/ambience/main.py
+```
+
+Next, create a `systemd` entry for `Ambience` so that it starts on system boot:
+
+```
+sudo cat <<EOF >/etc/systemd/system/ambience.service
+[Unit]
+Description=Automated ambient lighting and sound system
+After=bluetooth.target
+
+[Service]
+ExecStart=/home/pi/ambience/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+Then, enable this new service:
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable ambience.service
+```
+
+#### Speaker Configuration
+
+`Ambience` provides an automated script to connect to your Bluetooth speaker.
+
+Open `/home/pi/ambience/audio/scripts/mrt_autopair.sh` with `nano`, and then change the following line:
+
+```
+...
+connect 00:00:00:00:00:00
+...
+
+# Change to:
+
+...
+connect <YOUR MAC ADDRESS HERE>
+...
+```
+
+Now, reboot the Raspberry Pi:
+
+```
+sudo reboot
+```
+
+If all is configured correctly, after around a minute a loading animation will be displayed on the Unicorn pHAT. You can turn on your Bluetooth speaker at this point, which will automatically be connected to.
+
+Configuration is now finished. Refer back to README.md for configuring the MQTT broker for data transfer.

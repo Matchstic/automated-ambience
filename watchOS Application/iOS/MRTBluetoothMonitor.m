@@ -27,7 +27,7 @@
     self = [super init];
     
     if (self) {
-        self.bluetoothManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+        
     }
     
     return self;
@@ -35,11 +35,12 @@
 
 - (void)startPeriodicScanningWithDelegate:(id<MRTBluetoothMonitorDelegate>)delegate {
     self.delegate = delegate;
-    [self performSelector:@selector(_sendScanResults) withObject:nil afterDelay:5];
+    self.bluetoothManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
 - (void)_sendScanResults {
     NSLog(@"[BLUETOOTH] Sending scan results...");
+    [self.bluetoothManager stopScan];
     
     if (self.didSeeDeviceOnLastScan) {
         [self.delegate didFindDeviceWithRSSI:self.deviceLastRSSI];
@@ -48,7 +49,16 @@
         [self.delegate didNotFindDevice];
     }
     
-    [self performSelector:@selector(_sendScanResults) withObject:nil afterDelay:5];
+    [self performSelector:@selector(_newScan) withObject:nil afterDelay:5 * 60];
+}
+
+- (void)_newScan {
+    if (self.bluetoothManager.state == CBManagerStatePoweredOn) {
+        [self.bluetoothManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"181C"]] options:nil];
+        [self performSelector:@selector(_sendScanResults) withObject:nil afterDelay:10.0];
+    }
+    
+    // let the CBCentralManager callback start a new scan when hardware is back up
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +74,7 @@
             break;
         case CBManagerStatePoweredOn:
             NSLog(@"[BLUETOOTH] Hardware is powered on and ready");
-            [self.bluetoothManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"181C"]] options:nil];
+            [self _newScan];
             break;
         case CBManagerStateResetting:
             NSLog(@"[BLUETOOTH] Hardware is resetting");

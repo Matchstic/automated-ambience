@@ -1,15 +1,15 @@
 from BaseDataGenerator import BaseDataGenerator
 
-class StressDataGenerator(BaseDataGenerator):
+class CalmDataGenerator(BaseDataGenerator):
     def __init__(self, mqtt_manager):
         BaseDataGenerator.__init__(self, mqtt_manager)
         
     def configure_min_max_values(self):
-        self.max_bpm = 100
-        self.min_bpm = 75
+        self.max_bpm = 55
+        self.min_bpm = 45
         
-        self.max_hrv = 45
-        self.min_hrv = 25
+        self.max_hrv = 105
+        self.min_hrv = 85
         
     def name(self):
-        return "High Stress Generator"
+        return "Low Stress Generator"

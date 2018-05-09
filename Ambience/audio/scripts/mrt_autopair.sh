@@ -4,5 +4,5 @@
 # XXX: Update the MAC address here as required for your own Bluetooth speaker
 bluetoothctl << EOF
 discoverable on
-connect 00:11:67:00:00:10
+connect 00:00:00:00:00:00
 EOF

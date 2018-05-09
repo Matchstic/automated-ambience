@@ -29,8 +29,8 @@ class MQTTManager():
         connection_thread.start()
             
     def connection_thread(self):
-        print("[INFO] Connecting to MQTT broker on port " + str(MQTT_PORT) + "...")
-        print("[INFO] Connecting to emulated MQTT broker on port " + str(12345) + "...")
+        #print("[INFO] Connecting to MQTT broker on port " + str(MQTT_PORT) + "...")
+        #print("[INFO] Connecting to emulated MQTT broker on port " + str(12345) + "...\n")
         try:
             self.client.connect(MQTT_SERVER, MQTT_PORT)
         except:

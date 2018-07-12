@@ -87,10 +87,6 @@ The subsumption architecture is utilised to arbitrate between the output for the
 
 The time of day is taken into account in the `DaytimeAttentionTask`, where an increased level of red is emitted closest to midnight, and an increased level of green at midday. This then adjusts the outputted blue hue throughout the day.
 
-### Related Research and Publications
-
-// TODO: blue for attention, red for de-stress, Yorgos biofeedback, other biofeedback
-
 ### License
 
 Licensed under the GNU Public License, version 2 (GPLv2).
